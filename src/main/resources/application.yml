@@ -1,9 +1,17 @@
 spring:
   datasource:
     url: jdbc:mariadb://172.30.1.75:3306/io053001imgsvr
+#    itro.ddns.net:43306
     username: webdc
     password: itro
     driver-class-name: org.mariadb.jdbc.Driver
+
+spring.mvc.view.prefix: /WEB-INF/jsp/
+spring.mvc.view.suffix: .jsp
+spring.thymeleaf.cache: false
+spring.devtools.remote.restart.enabled: false
+
+
 mybatis:
   type-aliases-package: hospital_test.test.mapper
   mapper-locations: mybatis/mapper/**/*.xml

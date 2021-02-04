@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="TABLE1" border="0" cellpadding="0" cellspacing="0" width="1000px" style="margin-top:0px;">
+    <td style="padding-right: 0cm; padding-left: 0cm;
+            padding-bottom: 0cm; width: 710px; height: 540px;
+            padding-top: 0cm; background-color: transparent;
+            border-right-color: #ece9d8; vertical-align:top;" id="Td0">
+        <table id="table_1" width="100%"	height="800px" class="table classic" style="font-size:30px;">
+            <thead height="60px">
+            <!--				<th colspan="2">
+                                주차할인
+                            </th>-->
+            </thead>
+            <tbody>
+            <tr height="60px">
+                <th width="25%">
+                    할인처
+                </th>
+                <td>
+                    <input name='ClName' id='eClName' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;background:white;"readonly/>
+                    <!--아이트로-->
+                </td>
+            </tr>
+            <tr height="60px">
+                <th>
+                    차량번호
+                </th>
+                <td>
+                    <input name='CarNumber' id='eCarNumber' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;background:white;"/>
+                </td>
+            </tr>
+            <tr height="60px">
+                <th>
+                    입차일시
+                </th>
+                <td>
+                    <input name='EntDyTe' id='eEntDyTe' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;background:white;"readonly/>
+                </td>
+            </tr>
+            <tr height="60px">
+                <th>
+                    주차시간
+                </th>
+                <td>
+                    <input name='ParkingTime' id='eParkingTime' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;background:white;"readonly/>
+                </td>
+            </tr>
+            <tr height="60px">
+                <th>
+                    시간할인
+                </th>
+                <td>
+                    <a class="large btn" style="font-size:25px;width:160px;height:50px;line-height:40px;text-align:center;margin-bottom:5px;" id="btn1" onclick="dc_reg(eDCName1.value,eDCTime1.value,eDCRate1.value,1);">　</a>
+                    <a class="large btn" style="font-size:25px;width:160px;height:50px;line-height:40px;text-align:center;margin-bottom:5px;" id="btn2" onclick="dc_reg(eDCName2.value,eDCTime2.value,eDCRate2.value,2);">　</a>
+                    <a class="large btn" style="font-size:25px;width:160px;height:50px;line-height:40px;text-align:center;margin-bottom:5px;" id="btn3" onclick="dc_reg(eDCName3.value,eDCTime3.value,eDCRate3.value,3);">　</a>
+                    <br/>
+                    <a class="large btn" style="font-size:25px;width:160px;height:50px;line-height:40px;text-align:center;" id="btn4" onclick="dc_reg(eDCName4.value,eDCTime4.value,eDCRate4.value,4);">　</a>
+                    <a class="large btn" style="font-size:25px;width:160px;height:50px;line-height:40px;text-align:center;" id="btn5" onclick="dc_reg(eDCName5.value,eDCTime5.value,eDCRate5.value,5);">　</a>
+                    <a class="large btn" style="font-size:25px;width:160px;height:50px;line-height:40px;text-align:center;" id="btn6" onclick="dc_reg(eDCName6.value,eDCTime6.value,eDCRate6.value,6);">　</a>
+                </td>
+            </tr>
+            <tr height="60px">
+                <th>
+                    환자명
+                </th>
+                <td>
+                    <input name='UserName' id='eUserName' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;"/>
+                </td>
+            </tr>
+            <tr height="60px">
+                <th>
+                    환자병동
+                </th>
+                <td>
+                    <input name='PcLDuty' id='ePcLDuty' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;"/>
+                </td>
+            </tr>
+            <tr height="60px">
+                <th>
+                    전화번호
+                </th>
+                <td>
+                    <input name='PcLTel' id='ePcLTel' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;"/>
+                </td>
+            </tr>
+            <tr height="60px">
+                <th>
+                    입원날짜
+                </th>
+                <td>
+                    <input name='InDate' id='eInDate' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;"/>
+                </td>
+            </tr>
+            <tr height="60px">
+                <th>
+                    퇴원날짜
+                </th>
+                <td>
+                    <input name='EdDte' id='eEdDate' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;"/>
+                </td>
+            </tr>
+
+            <tr height="60px">
+                <th>
+                    비고
+                </th>
+                <td>
+                    <input name='DCMemo' id='eDCMemo' type="type" class="input" size="17" style="font-size:30px;width:360px;height:50px;line-height:40px;"/>
+                    <a class="large btn" style="font-size:25px;width:130px;height:50px;line-height:40px;text-align:center;" id="btn7" onclick="add_pat()">입원</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+    <td id="Td2" style="width: 10px">
+        &nbsp;</td>
+    <td style="padding-right: 0cm; padding-left: 0cm; border-left-color: #ece9d8; border-bottom-color: #ece9d8;
+            padding-bottom: 0cm; width: 300px; border-top-color: #ece9d8;
+            padding-top:0px; background-color: transparent;
+            border-right-color: #ece9d8; font-size: 9pt; left: 0px; position: relative; vertical-align: top;" id="Td1">
+<!--        <table width="100%"	height="70px" class="table" style="font-size:30px;">-->
+<!--            <tr>-->
+<!--                <td style="text-align:center;">-->
+<!--                    <input name='ETC' id='eETC' type="type" class="input" size="17" style="font-size:30px;width:276px;height:60px;line-height:50px;text-align: center;background:white;" readonly/>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--        </table>-->
+        <table width="100%"	height="70px" class="table" style="font-size:30px;">
+                <td style="text-align:center;">
+                    <form name=# action="reg_car" method="POST">
+                        차량번호 검색:
+                        <input type="text" name="num" value="" class="input"
+                               style="font-size: 60px; text-align: center; width: 276px; height: 66px; font-family: 'Nanum Gothic'; font-weight: bold; vertical-align: top; margin-bottom: 9px;margin-top:8px; letter-spacing: 2px; line-height:60px;"
+                               maxlength="4"/>
+                        <input type="submit" value="검 색" style="height:66px; width:276px;">
+                        <p th:if="${carNum}!=null"> <p th:text="${carNum}" ></p></p>
+
+                    </form>
+                </td>
+        </table>
+<!--        <table width="100%"	height="380px" class="table" style="font-size:30px;text-align:center;">-->
+<!--            <tr>-->
+<!--                <td>-->
+<!--                    <a class="large btn" style="font-size:60px;width:80px;height:80px;line-height:70px;text-align:center;" onclick="but(1)">1</a>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <a class="large btn" style="font-size:60px;width:80px;height:80px;line-height:70px;text-align:center;" onclick="but(2)">2</a>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <a class="large btn" style="font-size:60px;width:80px;height:80px;line-height:70px;text-align:center;" onclick="but(3)">3</a>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>-->
+<!--                    <a class="large btn" style="font-size:60px;width:80px;height:80px;line-height:70px;text-align:center;" onclick="but(4)">4</a>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <a class="large btn" style="font-size:60px;width:80px;height:80px;line-height:70px;text-align:center;" onclick="but(5)">5</a>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <a class="large btn" style="font-size:60px;width:80px;height:80px;line-height:70px;text-align:center;" onclick="but(6)">6</a>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>-->
+<!--                    <a class="large btn" style="font-size:60px;width:80px;height:80px;line-height:70px;text-align:center;" onclick="but(7)">7</a>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <a class="large btn" style="font-size:60px;width:80px;height:80px;line-height:70px;text-align:center;" onclick="but(8)">8</a>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <a class="large btn" style="font-size:60px;width:80px;height:80px;line-height:70px;text-align:center;" onclick="but(9)">9</a>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td>-->
+<!--                    <a class="large btn" style="font-size:60px;width:80px;height:80px;line-height:70px;text-align:center;" onclick="bkbut()">↩</a>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <a class="large btn" style="font-size:60px;width:80px;height:80px;line-height:70px;text-align:center;" onclick="but(0)">0</a>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <a class="large btn" style="font-size:60px;width:80px;height:80px;line-height:70px;text-align:center;" onclick="finish_act.submit()"><i class="icon-check"></i></a>&lt;!&ndash;✔&ndash;&gt;-->
+<!--                </td>-->
+<!--            </tr>-->
+            <table id="table_InCarList" width="276px"	height="260px" class="table classic" style="font-size:30px;">
+                <thead>
+                <th style="text-align:center;width='276px';height='50px';">
+                    입차목록
+                </th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <script data-jui="#table_InCarList" data-tpl="row" type="text/template">
+                <tr>
+                    <td style="text-align:center;"><a onclick=viewedit('<!= VHiDx !>')><!= CarNumber !></a></td>
+                </tr>
+            </script>
+            <table id="table_UpFile" width="276px" height="60px" class="table classic" style="margin-top:10px;font-size:30px;">
+                <thead>
+                <th style="text-align:center;width='276px';height='50px';">
+                    예약환자 차량등록
+                </th>
+                </thead>
+<!--                <form action="/api/upCSV.PHP" method="post" enctype="multipart/form-data">-->
+<!--                    <tr>-->
+<!--                        <td style="text-align:center;font-size=10px;">-->
+<!--                            <div class="filebox">-->
+<!--                                &lt;!&ndash;<input type="file" id="upfile" name="upfile" size="20" accept=".csv" style="font-size:12px;width:160px;">&ndash;&gt;-->
+<!--                                <input type="text" name="FileName" id="FileName" value="" class="input" readonly disabled="disabled" style="height: 40px;width: 270px;"/>-->
+<!--                                <input type="file" id="upfile" name="upfile" accept=".csv" class="upload-hidden">-->
+<!--                                <label class="large btn" for="upfile">파일선택</label>-->
+<!--                                <input class="large btn" value="등록하기" type="image" id="regfile" name="regfile" style="width: 100px;">-->
+<!--                                <label class="large btn" for="regfile">등록하기</label>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                </form>-->
+            </table>
+        </table>
+    </td>
+</table>
+</div>
+</body>
+</html>

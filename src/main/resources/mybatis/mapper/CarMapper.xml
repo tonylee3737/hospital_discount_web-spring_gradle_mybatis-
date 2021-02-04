@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hospital_test.test.car.CarMapper">
+
+    <select id="getCarInfo" resultType="java.util.HashMap">
+        SELECT * FROM parking_entvhl_list where VhlNbr like CONCAT('%',#{carNum},'%');
+    </select>
+
+    <select id="getCarInfo2"  parameterType="String" resultType="hospital_test.test.car.CarBean">
+        SELECT * FROM parking_entvhl_list where VhlNbr like CONCAT('%',#{carNum},'%');
+--         select * from parking_entvhl_list where VhlNbr like CONCAT('%',#{carNum},'%') order by VHiDx desc limit 4;
+    </select>
+<!--    exec sp_parking_class_discount(-->
+<!--    CALL sp_parking_class_discount(?,?,?,?,?,?,?,?,?,@Result)-->
+</mapper>
