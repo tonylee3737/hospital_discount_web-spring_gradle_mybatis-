@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+    <title>Hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> </head>
 <body>
-<form action="test" method ="POST">
-    <input type="text" name="num">
-    <input type ="submit">
-    </form>
-</form>
+<p th:text="'안녕하세요. ' + ${user_id}" >안녕하세요. 손님</p>
+<p th:text="'안녕하세요. ' + ${user_pass}" >안녕하세요. 손님</p>
+<p th:text="'안녕하세요. ' + ${data}" >안녕하세요. 손님</p>
+<p th:text="'안녕하세요. ' + ${session.session_id}" >안녕하세요. 손님</p>
+
 </body>
 </html>

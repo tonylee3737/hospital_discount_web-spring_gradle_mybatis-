@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hospital_test.test.member.MemberMapper">
+
+<select id="getUserInfo" resultType="hospital_test.test.member.MemberBean">
+    SELECT ClId FROM parking_class WHERE ClId = #{param1} AND ClPW = #{param2};
+</select>
+
+
+<select id="getAdminInfo" resultType="hospital_test.test.member.AdminBean">
+    SELECT AdmID FROM parking_class_admin WHERE AdmID = #{param1} AND AdmPW = #{param2};
+</select>
+
+
+</mapper>
+

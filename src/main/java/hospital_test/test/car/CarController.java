@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,24 +27,54 @@ public class CarController {
 
 
     @GetMapping("/reg_car")
-    public String reg_car() {
-        return "dc_reg";
+    public String reg_car(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        if(session.getAttribute("session_id")!=null){
+            return "dc_reg";
+        }else{
+            return "main";
+        }
     }
+//
+//    @PostMapping("/reg_car")
+//    public String reg_car(@RequestParam(value = "num") String value, Model model) {
+//        List car = carService.getCarMap(value);
+//        if (car.size() > 0) {
+//        for(int i = 0; i<car.size(); i++){
+//            = car.get(i);
+//        }
+//        String regex = ",";
+//        String[] s = car.get(0).toString().split(regex);
+//        String carnum=s[4].substring(8);
+//        model.addAttribute("carNum", carnum);
+//
+//        }
+//        return "dc_reg";
+//    }
 
     @PostMapping("/reg_car")
     public String reg_car(@RequestParam(value = "num") String value, Model model) {
-        CarBean car = carService.getCarInfo2(value);
-
-        model.addAttribute("carNum", car);
-        return "dc_reg";
+            CarBean car = carService.getCarInfo(value);
+            if(car!=null) {
+                model.addAttribute("carDate", car.getInsDyTe());
+                model.addAttribute("carNum", car.getVhlNbr());
+            }else{
+                model.addAttribute("carCheck", "None");
+            }
+            return "dc_reg";
+    }
+    @GetMapping("/reg_car_confirm")
+    public String reg_car_confirm(@RequestParam(value = "id") String value, Model model,HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        if (session.getAttribute("session_id") != null) {
+            CarBean car =carService.getCarOne(value);
+            model.addAttribute("carDate", car.getInsDyTe() );
+            model.addAttribute("carNum", car.getVhlNbr());
+            return "dc_reg_confirm";
+        }else{
+            return "main";
+        }
     }
 }
-
-//    @PostMapping("/reg_car")
-//    public String reg_car(@RequestParam(value = "num") String value, Model model) {
-//        List car = carService.getCarInfo2(value);
-//        model.addAttribute("carNum", car);
-//        return "dc_reg";
-//    }
 
 

@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
-<div class="inline right">
-    <h1 th:if="${session.session_id}!=null"> <p th:text="'안녕하세요.' + ${session.session_id} + '님 환영합니다.'" ></p></h1></a>
-    <a onclick="window.open('./patient_list_popup.php?id=<?= $clidx ?>','drdr','width=1100,height=600,top=100,left=100');" class="btn large focus">입퇴원 검색</a>
-    <a onclick="window.open('./discount_list_popup.php?id=<?= $clidx ?>','drdr','width=1100,height=600,top=100,left=100');" class="btn large focus">등록내역검색</a>
-    <a href="logout" class="btn large focus">로그아웃</a>
-</div>
-
+<h1>-Confirm Page-</h1>
 <table id="TABLE1" border="0" cellpadding="0" cellspacing="0" width="1000px" style="margin-top:0px;">
     <td style="padding-right: 0cm; padding-left: 0cm;
             padding-bottom: 0cm; width: 710px; height: 540px;
@@ -25,69 +17,95 @@
             </thead>
             <tbody>
             <tr height="60px">
-                <th width="25%">할인처</th>
+                <th width="25%">
+                    할인처
+                </th>
                 <td>
-                    <input name='ClName' id='eClName' type="type" class="input" size="17" value = "아이트로" style="font-size:30px;width:505px;height:50px;line-height:40px;background:white;"readonly/>
+                    <input name='ClName' id='eClName' type="type" value = "아이트로" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;background:white;"readonly/>
+
+                    <!--아이트로-->
                 </td>
             </tr>
             <tr height="60px">
-                <th>차량번호</th>
+                <th>
+                    차량번호
+                </th>
                 <td>
-                    <input name='CarNumber' id='eCarNumber' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;background:white;"/>
+                    <input name='CarNumber' id='eCarNumber' type="type" th:value="${carNum}" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;background:white;"/>
                 </td>
             </tr>
             <tr height="60px">
-                <th>입차일시</th>
+                <th>
+                    입차일시
+                </th>
                 <td>
-                    <input name='EntDyTe' id='eEntDyTe' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;background:white;"readonly/>
+                    <input name='EntDyTe' id='eEntDyTe' type="type" th:value="${carDate}" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;background:white;"readonly/>
                 </td>
             </tr>
             <tr height="60px">
-                <th>주차시간</th>
+                <th>
+                    주차시간
+                </th>
                 <td>
                     <input name='ParkingTime' id='eParkingTime' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;background:white;"readonly/>
                 </td>
             </tr>
             <tr height="60px">
-                <th>시간할인 :</th>
+                <th>
+                    시간할인 :
+                </th>
                 <td>
                     <a href = "#">1시간</a>&nbsp; &nbsp; &nbsp;
-                    <a href = "#">3시간</a><br/>
+                    <a href = "#">3시간</a>
+
+                    <br/>
                 </td>
             </tr>
             <tr height="60px">
-                <th>환자명</th>
+                <th>
+                    환자명
+                </th>
                 <td>
                     <input name='UserName' id='eUserName' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;"/>
                 </td>
             </tr>
             <tr height="60px">
-                <th>환자병동</th>
+                <th>
+                    환자병동
+                </th>
                 <td>
                     <input name='PcLDuty' id='ePcLDuty' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;"/>
                 </td>
             </tr>
             <tr height="60px">
-                <th>전화번호</th>
+                <th>
+                    전화번호
+                </th>
                 <td>
                     <input name='PcLTel' id='ePcLTel' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;"/>
                 </td>
             </tr>
             <tr height="60px">
-                <th>입원날짜</th>
+                <th>
+                    입원날짜
+                </th>
                 <td>
                     <input name='InDate' id='eInDate' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;"/>
                 </td>
             </tr>
             <tr height="60px">
-                <th>퇴원날짜</th>
+                <th>
+                    퇴원날짜
+                </th>
                 <td>
                     <input name='EdDte' id='eEdDate' type="type" class="input" size="17" style="font-size:30px;width:505px;height:50px;line-height:40px;"/>
                 </td>
             </tr>
 
             <tr height="60px">
-                <th>비고</th>
+                <th>
+                    비고
+                </th>
                 <td>
                     <input name='DCMemo' id='eDCMemo' type="type" class="input" size="17" style="font-size:30px;width:360px;height:50px;line-height:40px;"/>
                     <a class="large btn" style="font-size:25px;width:130px;height:50px;line-height:40px;text-align:center;" id="btn7" onclick="add_pat()">입원</a>
@@ -104,46 +122,44 @@
             border-right-color: #ece9d8; font-size: 9pt; left: 0px; position: relative; vertical-align: top;" id="Td1">
 
         <table width="100%"	height="70px" class="table" style="font-size:30px;">
-                <td style="text-align:center;">
-                    <form name=# action="reg_car" method="POST">
-                        차량번호 검색:
-                        <input type="text" name="num" value="" class="input"
-                               style="font-size: 60px; text-align: center; width: 276px; height: 66px; font-family: 'Nanum Gothic'; font-weight: bold; vertical-align: top; margin-bottom: 9px;margin-top:8px; letter-spacing: 2px; line-height:60px;"
-                               maxlength="4"/>
-                        <input type="submit" value="검 색" style="height:66px; width:276px;">
-                        <a th:href="@{/reg_car_confirm(id=${carNum})}"><p th:if="${carNum}!=null"> <p th:text="${carNum}" ></p></p></a>
-                        <p th:if="${carCheck}=='None'">차량번호가 존재하지 않습니다.</p>
+            <td style="text-align:center;">
+                <form name=# action="reg_car" method="POST">
+                    차량번호 검색:
+                    <input type="text" name="num" value="" class="input"
+                           style="font-size: 60px; text-align: center; width: 276px; height: 66px; font-family: 'Nanum Gothic'; font-weight: bold; vertical-align: top; margin-bottom: 9px;margin-top:8px; letter-spacing: 2px; line-height:60px;"
+                           maxlength="4"/>
+                    <input type="submit" value="검 색" style="height:66px; width:276px;">
+                    <a th:href="@{/reg_car_confirm(id=${carNum})}"><p th:if="${carNum}!=null"> <p th:text="${carNum}" ></p></p></a>
 
 
-
-                    </form>
-                </td>
+                </form>
+            </td>
         </table>
 
-            <table id="table_InCarList" width="276px"	height="260px" class="table classic" style="font-size:30px;">
-                <thead>
-                <th style="text-align:center;width='276px';height='50px';">
-                    입차목록
-                </th>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-            <script data-jui="#table_InCarList" data-tpl="row" type="text/template">
-                <tr>
-                    <td style="text-align:center;"><a onclick=viewedit('<!= VHiDx !>')><!= CarNumber !></a></td>
-                </tr>
-            </script>
-            <table id="table_UpFile" width="276px" height="60px" class="table classic" style="margin-top:10px;font-size:30px;">
-                <thead>
-                <th style="text-align:center;width='276px';height='50px';">
-                    예약환자 차량등록
-                </th>
-                </thead>
-
-            </table>
+        <table id="table_InCarList" width="276px"	height="260px" class="table classic" style="font-size:30px;">
+            <thead>
+            <th style="text-align:center;width='276px';height='50px';">
+                입차목록
+            </th>
+            </thead>
+            <tbody>
+            </tbody>
         </table>
-    </td>
+        <script data-jui="#table_InCarList" data-tpl="row" type="text/template">
+            <tr>
+                <td style="text-align:center;"><a onclick=viewedit('<!= VHiDx !>')><!= CarNumber !></a></td>
+            </tr>
+        </script>
+        <table id="table_UpFile" width="276px" height="60px" class="table classic" style="margin-top:10px;font-size:30px;">
+            <thead>
+            <th style="text-align:center;width='276px';height='50px';">
+                예약환자 차량등록
+            </th>
+            </thead>
+
+        </table>
+</table>
+</td>
 </table>
 </div>
 </body>

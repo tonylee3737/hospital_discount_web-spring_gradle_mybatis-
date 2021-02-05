@@ -6,7 +6,9 @@ import java.util.Map;
 
 public interface CarService {
 
-    List<Map<String, Object>> getCarInfo(String carNum);
+    List<Map<String, Object>> getCarMap(String carNum);
 
-    CarBean getCarInfo2(String carNum);
+    CarBean getCarInfo(String carNum);
+
+    CarBean getCarOne(String carNum);
 }

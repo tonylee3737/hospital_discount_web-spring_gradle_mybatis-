@@ -18,13 +18,18 @@ public class CarServiceImpl implements CarService{
     }
 
     @Override
-    public List<Map<String, Object>> getCarInfo(String carNum) {
+    public List<Map<String, Object>> getCarMap(String carNum) {
+        return carMapper.getCarMap(carNum);
+    }
+
+    @Override
+    public CarBean getCarInfo(String carNum) {
         return carMapper.getCarInfo(carNum);
     }
 
     @Override
-    public CarBean getCarInfo2(String carNum) {
-        return carMapper.getCarInfo2(carNum);
+    public CarBean getCarOne(String carNum) {
+        return carMapper.getCarOne(carNum);
     }
 
 }

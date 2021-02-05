@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <title>:: 근로복지공단 대구병원 ::</title>
+</head>
+<body class="jui">
+    <div style='margin-top:20px;margin-bottom:20px;'>
+        <img src='login.png'><br>
+    </div>
+    <div style='margin-top:50px;margin-bottom:200px;margin-left: 500px'>
+    <form method="POST" action= "/">
+        아이디:<input name='user_id' type="text" class="input" /><br>
+        비밀번호:<input name='user_pass' type="password" class="input" /><br>
+        <input type = "submit"  class="btn focus" value = "로그인">
+    </form>
+        <p th:if="${m}!=null"> <p th:text="${m}"></p></p>
+    </div>
+</body>
+</html>
+</body>
+</html>

@@ -3,15 +3,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="hospital_test.test.car.CarMapper">
-
-    <select id="getCarInfo" resultType="java.util.HashMap">
-        SELECT * FROM parking_entvhl_list where VhlNbr like CONCAT('%',#{carNum},'%');
+<!--해시맵으로 받아서 데이터를 따로 분리하는 것을 시행하지 못함-->
+<!--    <select id="getCarMap" resultType="java.util.HashMap">-->
+<!--        SELECT * FROM parking_entvhl_list where VhlNbr like CONCAT('%',#{carNum},'%');-->
+<!--    </select>-->
+<!--사용자가 차 넘버를 입력하면 차에 대한 정보를 보내주는 쿼리-->
+    <select id="getCarInfo" resultType="hospital_test.test.car.CarBean">
+        SELECT VhlNbr, InsDyTe FROM parking_entvhl_list where VhlNbr like CONCAT('%',#{carNum},'%');
     </select>
 
-    <select id="getCarInfo2"  parameterType="String" resultType="hospital_test.test.car.CarBean">
-        SELECT * FROM parking_entvhl_list where VhlNbr like CONCAT('%',#{carNum},'%');
---         select * from parking_entvhl_list where VhlNbr like CONCAT('%',#{carNum},'%') order by VHiDx desc limit 4;
+<!-- 출력된 차 넘버를 클릭하면 그 차에 대한 세부내용을 가져오는 쿼리-->
+    <select id="getCarOne" resultType="hospital_test.test.car.CarBean">
+        SELECT VhlNbr, InsDyTe FROM parking_entvhl_list where VhlNbr = #{carNum};
     </select>
+
+</mapper>
+
+<!--    <select id="getCarInfo2"  parameterType="String" resultType="java.util.HashMap">-->
+<!--        SELECT * FROM parking_entvhl_list where VhlNbr like CONCAT('%',#{carNum},'%');-->
+<!--&#45;&#45;         select * from parking_entvhl_list where VhlNbr like CONCAT('%',#{carNum},'%') order by VHiDx desc limit 4;-->
+<!--    </select>-->
 <!--    exec sp_parking_class_discount(-->
 <!--    CALL sp_parking_class_discount(?,?,?,?,?,?,?,?,?,@Result)-->
-</mapper>
