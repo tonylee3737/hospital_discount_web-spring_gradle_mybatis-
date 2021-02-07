@@ -5,14 +5,29 @@
 <mapper namespace="hospital_test.test.member.MemberMapper">
 
 <select id="getUserInfo" resultType="hospital_test.test.member.MemberBean">
-    SELECT ClId FROM parking_class WHERE ClId = #{param1} AND ClPW = #{param2};
+    SELECT ClId, ClDCTime1, ClPW FROM parking_class WHERE ClId = #{param1} AND ClPW = #{param2};
 </select>
+
+    <select id="getCarOne" resultType="hospital_test.test.car.CarBean">
+        SELECT VhlNbr, InsDyTe FROM parking_entvhl_list where VhlNbr = #{carNum};
+    </select>
+
+    <select id="getTime" parameterType="String" resultType="String">
+        SELECT DATEDIFF(now(), InsDyTe) FROM parking_entvhl_list WHERE VhlNbr = #{carNum};
+    </select>
 
 
 <select id="getAdminInfo" resultType="hospital_test.test.member.AdminBean">
     SELECT AdmID FROM parking_class_admin WHERE AdmID = #{param1} AND AdmPW = #{param2};
 </select>
 
+<insert id="memberInsert" parameterType="hospital_test.test.member.MemberBean">
+    INSERT INTO parking_class (ClId, ClPW) VALUES(#{param1}, #{param2});
+</insert>
+
+<update id="memberDcTimeUpdate" parameterType="hospital_test.test.member.MemberBean">
+    UPDATE parking_class SET ClDCTime1 = #{param1} WHERE ClId = #{param2};
+</update>
 
 </mapper>
 

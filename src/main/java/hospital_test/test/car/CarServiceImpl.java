@@ -28,6 +28,11 @@ public class CarServiceImpl implements CarService{
     }
 
     @Override
+    public String getTime(String carNum) {
+        return carMapper.getTime(carNum);
+    }
+
+    @Override
     public CarBean getCarOne(String carNum) {
         return carMapper.getCarOne(carNum);
     }

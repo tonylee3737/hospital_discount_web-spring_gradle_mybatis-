@@ -7,4 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Getter @Setter
 public class MemberBean {
     String ClId;
+    String ClPW;
+    String ClDCTime1;
 }

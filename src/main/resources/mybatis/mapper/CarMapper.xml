@@ -17,6 +17,11 @@
         SELECT VhlNbr, InsDyTe FROM parking_entvhl_list where VhlNbr = #{carNum};
     </select>
 
+    <select id="getTime" parameterType="String" resultType="String">
+        SELECT DATEDIFF(now(), InsDyTe) FROM parking_entvhl_list WHERE VhlNbr = #{carNum};
+    </select>
+
+
 </mapper>
 
 <!--    <select id="getCarInfo2"  parameterType="String" resultType="java.util.HashMap">-->

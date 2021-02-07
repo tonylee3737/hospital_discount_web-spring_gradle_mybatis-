@@ -9,6 +9,6 @@ public interface CarService {
     List<Map<String, Object>> getCarMap(String carNum);
 
     CarBean getCarInfo(String carNum);
-
+    String getTime(String carNum);
     CarBean getCarOne(String carNum);
 }

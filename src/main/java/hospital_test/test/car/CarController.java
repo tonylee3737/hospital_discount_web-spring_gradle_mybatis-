@@ -1,6 +1,7 @@
 package hospital_test.test.car;
 
 
+import hospital_test.test.member.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import java.util.Map;
 
 @Controller
 public class CarController {
+
     private CarService carService;
 
     @Autowired
@@ -54,6 +56,7 @@ public class CarController {
 
     @PostMapping("/reg_car")
     public String reg_car(@RequestParam(value = "num") String value, Model model) {
+
             CarBean car = carService.getCarInfo(value);
             if(car!=null) {
                 model.addAttribute("carDate", car.getInsDyTe());
@@ -66,10 +69,15 @@ public class CarController {
     @GetMapping("/reg_car_confirm")
     public String reg_car_confirm(@RequestParam(value = "id") String value, Model model,HttpServletRequest request) {
         HttpSession session = request.getSession();
+        session.setAttribute("session_car_id", value);
+
         if (session.getAttribute("session_id") != null) {
             CarBean car =carService.getCarOne(value);
+            String time = carService.getTime(value);
+
             model.addAttribute("carDate", car.getInsDyTe() );
             model.addAttribute("carNum", car.getVhlNbr());
+            model.addAttribute("parking_while", time);
             return "dc_reg_confirm";
         }else{
             return "main";
